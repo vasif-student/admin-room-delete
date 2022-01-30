@@ -1,0 +1,71 @@
+﻿@model HotelViewModel
+@{
+    Layout = null;
+}
+<h1 class="fs-1 text-center">@Model.Hotel.Name</h1>
+<div class="text-center">
+    <img style="width:500px;" src="~/img/HOTEL/@Model.Hotel.Image" class="rounded mb-4" alt="hotel">
+</div>
+
+<table style="margin:auto;" class="table table-bordered border-primary mb-4">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Hotel.Name</td>
+            <td>@Model.Hotel.Description</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 class="text-center text-danger mb-3">Hotel's Rooms:</h3>
+<a asp-action="Create" asp-controller="Room" asp-area="Admin" asp-route-id="@Model.Hotel.Id" class="link-primary ml-3" style="text-decoration: underline; text-underline-offset: 1px;">+ Create Room</a>
+
+
+<table style="margin:auto;" class="table table-bordered border-primary mt-4 mb-4">
+    <thead>
+        <tr>
+            <th scope="col">Image</th>
+            <th scope="col">Room Type</th>
+            <th scope="col">Adult</th>
+            <th scope="col">Children</th>
+            <th scope="col">Square</th>
+            <th scope="col">Price</th>
+            <th scope="col">Description</th>
+            <th scope="col">Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var room in Model.Rooms)
+        {
+        <tr>
+            <td>
+                @foreach (var image in room.RoomImages.Where(i => i.IsMain))
+                {
+                    <img style="width:200px;" src="~/img/rooms/@image.ImageName" />
+                }
+            </td>
+            <td>@room.RoomType</td>
+            <td>@room.NumberOfAdult</td>
+            <td>@room.NumberOfChildren</td>
+            <td>@room.Square</td>
+            <td>@room.Price $</td>
+            <td>@room.Description</td>
+            <td>
+                <a class="link-primary" asp-controller="Dashboard" asp-action="Detail" asp-route-id="@room.Id">Update <span style="color:black;">|</span></a>
+                <a class="text-danger" asp-area="Admin" asp-controller="Room" asp-action="Delete" asp-route-id="@room.Id">Delete</a>
+            </td>
+        </tr>
+        }
+
+    </tbody>
+</table>
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+

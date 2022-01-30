@@ -1,0 +1,44 @@
+﻿@model List<Room>
+@{
+    ViewData["Title"] = "Search";
+}
+
+@foreach (var room in Model)
+{
+    foreach (var image in room.RoomImages)
+    {
+        <div class="hotel-masonry-grid-item hotel-masonry-grid-item-33 deluxe">
+
+            <!-- room card -->
+            <div class="hotel-room-card">
+                <div class="hotel-cover-frame imgLoad">
+                    <a href="roomSuite.html"><img class="lozad" data-src="img/@image.ImageName" alt="cover"></a>
+                </div>
+                <div class="hotel-description-frame">
+                    <div class="hotel-room-features">
+                        <div class="hotel-feature imgLoad">
+                            <div class="hotel-icon-frame"><img class="lozad" data-src="img/icons/bed.svg" alt="icon"></div>
+                            <span>@room.NumberOfAdult Nəfərlik</span>
+                        </div>
+                        <div class="hotel-feature imgLoad">
+                            <div class="hotel-icon-frame"><img class="lozad" data-src="img/icons/square.svg" alt="icon"></div>
+                            <span>@room.Square</span>
+                        </div>
+                    </div>
+                    <a href="roomSuite.html">
+                        <h3 class="hotel-mb-20">@room.RoomType</h3>
+                    </a>
+                    <div class="hotel-text-light hotel-text-sm hotel-mb-20">@room.Description</div>
+                    <div class="hotel-card-bottom imgLoad">
+                        <div class="hotel-price">@room.Price M <span>/gecə</span></div>
+                        <a href="roomSuite.html" class="hotel-btn"><img class="lozad" data-src="img/icons/bookmark.svg" alt="icon">Rezerv et</a>
+                    </div>
+                </div>
+            </div>
+            <!-- room card end -->
+
+        </div>
+
+    }
+}
+

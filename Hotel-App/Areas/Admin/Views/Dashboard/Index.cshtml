@@ -1,0 +1,49 @@
+﻿@model DashboardIndexViewModel
+
+@{
+    Layout = null;
+    int order = 0;
+
+}
+
+
+<h1>Xos geldin @User.Identity.Name</h1>
+<h3><mark>@Model.User.Email</mark></h3>
+<a type="button" asp-controller="Dashboard" asp-action="Create" class="btn btn-success btn-lg btn-block">Create New Hotel</a>
+
+
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Order</th>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var hotel in Model.Hotels)
+            {
+                order++;
+                <tr>
+                    <td>@order</td>
+                    <td>@hotel.Name</td>
+                    <td><img src="~/img/HOTEL/@hotel.Image" style="width:200px; height:200px; border-radius:50%; object-fit:cover;" /></td>
+                    <td>
+                        <a class="btn btn-primary" asp-controller="Dashboard" asp-action="Detail" asp-route-id="@hotel.Id">Detail</a>
+                        <a class="btn btn-warning" asp-controller="Dashboard" asp-action="Update" asp-route-id="@hotel.Id">Update</a>
+                        <a class="btn btn-danger" asp-controller="Dashboard" asp-action="Delete" asp-route-id="@hotel.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+

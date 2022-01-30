@@ -1,0 +1,69 @@
+﻿@model RoomCreateViewModel
+@{
+    Layout = null;
+}
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-6 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Create New Hotel</h4>
+                    <form class="forms-sample" method="post" asp-area="Admin" asp-controller="Room" asp-action="Create" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label asp-for="RoomType" class="text-success">Room Type</label>
+                            <input class="form-control" asp-for="RoomType" placeholder="Room Type">
+                            <span class="text-danger" asp-validation-for="RoomType"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Description" class="text-success">Description</label>
+                            <input class="form-control" asp-for="Description" placeholder="Description">
+                            <span class="text-danger" asp-validation-for="Description"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Square" class="text-success">Square</label>
+                            <input class="form-control" asp-for="Square" placeholder="Square">
+                            <span class="text-danger" asp-validation-for="Square"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Price" class="text-success">Price</label>
+                            <input class="form-control" asp-for="Price" placeholder="Price">
+                            <span class="text-danger" asp-validation-for="Price"></span>
+                        </div>
+                        <div class="col-6">
+                            <div class="hotel-select-frame">
+                                <label asp-for="NumberOfAdult">Böyük</label>
+                                <select asp-for="NumberOfAdult">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4" disabled>4</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="hotel-select-frame">
+                                <label asp-for="NumberOfChildren">Uşaq</label>
+                                <select asp-for="NumberOfChildren">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3" disabled>3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Files" class="text-success">Image</label>
+                            <input class="form-control" asp-for="Files" accept="images/*" multiple placeholder="Images">
+                            <span class="text-danger" asp-validation-for="Files"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary me-2">Submit</button>
+                        <a asp-action="Index" asp-controller="Dashboard" asp-area="Admin" class="btn btn-light">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">

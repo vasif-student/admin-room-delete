@@ -1,0 +1,56 @@
+﻿<!-- top bar -->
+<div class="hotel-top-bar">
+    <div class="container">
+        <div class="hotel-left-side">
+            <!-- logo -->
+            <a href="index.html" class="hotel-logo-frame" style="width: 50px;">
+                <img src="~/img/hotellogo.png" alt="logo">
+            </a>
+            <!-- logo end -->
+        </div>
+        <div class="hotel-right-side">
+            <!-- menu -->
+            <div class="hotel-menu">
+                <nav>
+                    <ul>
+                        <li class="current-item">
+                            <a asp-action="Index" asp-controller="Home">Ana Səhifə</a>
+                        </li>
+                        <li>
+                            <a asp-action="Index" asp-controller="About">Haqqımızda</a>
+                        </li>
+                        <li>
+                            <a asp-action="Index" asp-controller="Hotel">Hotellər</a>
+                        </li>
+                        <li>
+                            <a asp-action="Index" asp-controller="Room">Otaqlar</a>
+                        </li>
+                        <li>
+                            <a asp-action="Index" asp-controller="Service">Xidmətlərimiz</a>
+                        </li>
+                        <li>
+                            <a asp-action="Index" asp-controller="Contact">Əlaqə</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- menu end -->
+            <!-- action button -->
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a asp-action="Logout" asp-controller="Account" class="hotel-btn"><img src="~/img/icons/bookmark.svg" alt="icon">
+                    Çıxış
+                </a>
+            }
+            else
+            {
+                <a asp-action="Login" asp-controller="Account" class="hotel-btn"><img src="~/img/icons/bookmark.svg" alt="icon">Giriş</a>
+            }
+            <!-- action button end -->
+        </div>
+        <!-- menu button -->
+        <div class="hotel-menu-btn"><span></span></div>
+        <!-- menu button end -->
+    </div>
+</div>
+<!-- top bar end -->

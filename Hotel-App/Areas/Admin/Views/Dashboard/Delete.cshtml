@@ -1,0 +1,38 @@
+﻿@model Hotel
+@{
+    Layout = null;
+}
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <table style="margin:auto;" class="table table-bordered border-primary mb-4">
+                    <thead>
+                        <tr>
+                            <th scope="col">Image</th>
+                            <th scope="col">Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img style="width:200px;" src="~/img/HOTEL/@Model.Image" />
+                            </td>
+                            <td>@Model.Name</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <p class="text-danger">Silmek istediyinizden eminsiniz mi ?</p>
+                <a class="btn btn-secondary" asp-action="Index">Cancel</a>
+                <form method="post" asp-controller="Dashboard" asp-action="Delete">
+                    <button class="btn btn-danger" type="submit">Sil</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+

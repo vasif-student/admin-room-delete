@@ -1,0 +1,38 @@
+﻿@model HotelUpdateViewModel
+@{
+    Layout = null;
+}
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-6 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Update Hotel</h4>
+                    <form class="forms-sample" method="post" asp-controller="Dashboard" asp-action="Update" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label asp-for="Name" class="text-success">Name</label>
+                            <input class="form-control" asp-for="Name" placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Description" class="text-success">Description</label>
+                            <input class="form-control" asp-for="Description" placeholder="IsMain">
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="File" class="text-success">Image</label>
+                            <input class="form-control" asp-for="File" accept="images/*" placeholder="File">
+                            <span class="text-danger" asp-validation-for="File"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary me-2">Submit</button>
+                        <a asp-action="Index" class="btn btn-light">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+
+
